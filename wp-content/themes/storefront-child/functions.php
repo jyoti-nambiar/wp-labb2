@@ -44,17 +44,18 @@ function create_posttype()
 {
 
     register_post_type(
-        'customer-review',
+        'review',
         // CPT Options
         array(
             'labels' => array(
-                'name' => __('customer-reviews'),
-                'singular_name' => __('customer-review')
+                'name' => __('reviews'),
+                'singular_name' => __('review')
             ),
             'public' => true,
             'has_archive' => true,
             'rewrite' => array('slug' => 'review'),
             'show_in_rest' => true,
+            'show_in_nav_menus' => true,
 
         )
     );
@@ -87,4 +88,4 @@ function wbcom_change_product_price_display($price)
     return $price;
 }
 add_filter('woocommerce_get_price_html', 'wbcom_change_product_price_display'); // Changes on shop and single product page
-add_filter('woocommerce_cart_item_price', 'wbcom_change_product_price_display');// Changes on cart
+add_filter('woocommerce_cart_item_price', 'wbcom_change_product_price_display'); // Changes on cart
