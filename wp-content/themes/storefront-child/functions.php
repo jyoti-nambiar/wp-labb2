@@ -1,25 +1,7 @@
 <?php
 
-function enque_styles_custom()
-{
-    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/custom.css', false, '1.1', 'all');
 
-    wp_enqueue_style('fontawesome', get_stylesheet_directory_uri() . '/css/font-awesome.css', false, '1.1', 'all');
-
-    wp_enqueue_style('bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', false, '1.1', 'all');
-}
-add_action('wp_enqueue_scripts', 'enque_styles_custom');
-
-function enque_scripts_custom()
-{
-    wp_register_script('jQuery', get_stylesheet_directory_uri() . '/js/jquery.js', null, null, true);
-    wp_enqueue_script('jQuery');
-
-    wp_register_script('script', get_stylesheet_directory_uri() . '/js/script.js', null, null, true);
-    wp_enqueue_script('script');
-}
-add_action('wp_enqueue_scripts', 'enque_scripts_custom');
-
+//Register menus
 
 function register_menus()
 {
@@ -30,16 +12,11 @@ function register_menus()
 
 add_action('after_setup_theme', 'register_menus');
 
-add_action('custom_hook', 'test');
-function test()
-{
-    echo 'Custom hook';
-}
 
 
 add_theme_support('woocommerce');
 
-// Our custom post type function
+// custom post type function
 function create_posttype()
 {
 
